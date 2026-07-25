@@ -1,0 +1,8 @@
+#pragma once
+#include <string>
+namespace hexadecimal {
+
+// TODO: add your solution here
+    int convert(std::string num_str);
+
+}  // namespace hexadecimal
