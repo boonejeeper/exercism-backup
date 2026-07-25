@@ -1,0 +1,25 @@
+package strain
+
+// Implement the "Keep" and "Discard" function in this file.
+
+// You will need typed parameters (aka "Generics") to solve this exercise.
+// They are not part of the Exercism syllabus yet but you can learn about
+// them here: https://go.dev/tour/generics/1
+
+func Filter[T any](list []T, filterFunc func(T) bool) []T {
+	var result []T
+	for _, item := range list {
+		if filterFunc(item) {
+			result = append(result, item)
+		}
+	}
+	return result
+}
+
+func Keep[T any](list []T, keepFunc func(T) bool) []T {
+	return Filter(list, keepFunc)
+}
+
+func Discard[T any](list []T, discardFunc func(T) bool) []T {
+	return Filter(list, func(item T) bool { return !discardFunc(item) })
+}
